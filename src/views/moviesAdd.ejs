@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie add</title>
+    <link rel='stylesheet' href='/css/style.css' />
+
+</head>
+<body>
+    <figure>
+        <img src="/img/Pelicula.webp" alt="Pelicula">
+    </figure>
+
+    <h1 class="titulo">Agregar Película</h1>
+    <br>
+
+    <section>
+        <form action="/movies/create" method="POST">
+            <label for="title">Titulo</label>
+            <input type="text" name="title" id="" required>
+
+            <label for="rating">Calificación</label>
+            <input type="number" name="rating" id="" required>
+
+            <label for="awards">Premios</label>
+            <input type="number" name="awards" id="" required>
+
+            <label for="release_date">Fecha de creación</label>
+            <input type="date" name="release_date" id="" required>
+
+            <label for="length">Duración</label>
+            <input type="number" name="length" id="" required>
+
+            <label for="genreID">Género</label>
+            
+            <select name="genre_id"  id="" required>
+                <option value="" disable selected > Seleccione el Geénero</option>
+                <% allGenres.forEach(genre => { %>
+                <option value="<%= genre.id %>"> <%= genre.name %></option>
+
+              <%  }) %>
+            </select>
+            <br>
+
+            <p>><button class="botonAgregar" type="submit">Agregar</button></p><br>
+
+            <a class="botonVolver" href="/movies">Listado de Películas</a>
+
+        </form>
+    </section>
+
+</body>
+</html>
